@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Moirant | Ürün
+Ekle {% endblock %} {% block content %}
+<h1>Siparişler:</h1>
+<div class="recent-orders">
+  <h2>Son Sipraişler</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Ürün Adı</th>
+        <th>Miktar</th>
+        <th>Tedarikci</th>
+        <th>Teslimat Durumu</th>
+        <th>Detaylı</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if latest_transactions %} {% for transaction in latest_transactions %}
+      <tr>
+        <td>{{ transaction.item }}</td>
+        <td>{{ transaction.quantity }}</td>
+        <td>{{ transaction.client }}</td>
+
+        {% if transaction.state == 0 %}
+        <td class="warning">Beklemede</td>
+        {% elif transaction.state == 1 %}
+        <td class="success">Onaylandı</td>
+        {% elif transaction.state == 2 %}
+        <td class="danger">Sorun</td>
+        {% endif %}
+
+        <td class="Primary">Detaylar</td>
+      </tr>
+      {% endfor %} {% else %}
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td class="warning">---</td>
+      <td class="Primary">Detaylar</td>
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+{% block additional_scripts %} {% endblock %} {% endblock %}

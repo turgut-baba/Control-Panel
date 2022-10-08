@@ -1,0 +1,1125 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/*------------ ROOT VARIABLES -------------------*/
+
+:root {
+  --color-primary: #7380ec;
+  --color-danger: #ff7782;
+  --color-success: #41f1b6;
+  --color-warning: #ffbb55;
+  --color-white: #ffffff;
+  --color-info-dark: #7d8da1;
+  --color-info-light: #dce1ed;
+  --color-dark: #363949;
+  --color-light: rgba(132, 139, 200, 0.18);
+  --color-primary-variant: #111e88;
+  --color-dark-variant: #677483;
+  --color-background: #f6f6f9;
+  --color-orange: #F63;
+
+  --card-border-radius: 2rem;
+  --border-radius-1: 0.4rem;
+  --bordre-radius-2: 0.8rem;
+  --border-radius-3: 1.2rem;
+
+  --card-padding: 1.8rem;
+  --padding-1: 1.2rem;
+  --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  appearance: none;
+  border: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.88rem;
+  background: var(--color-background);
+  user-select: none;
+  overflow-x: hidden;
+  color: var(--color-dark);
+}
+
+.login-screen{
+  background: rgb(115,128,236);
+  background: linear-gradient(130deg, rgba(115,128,236,1) 0%, rgba(246,246,249,1) 100%);
+}
+
+.container, .login-container {
+  display: grid;
+  width: 96%;
+  margin: 0 auto;
+  gap: 1.8rem;
+  grid-template-columns: 14rem auto 23rem;
+}
+
+.login-container{
+  justify-content: center;
+  margin: revert;
+  display: revert;
+  padding-top: 10rem;
+}
+
+.login-container *{
+  margin: revert;
+}
+
+
+a {
+  color: var(--color-dark);
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 0.87rem;
+}
+
+h4 {
+  font-size: 0.8rem;
+}
+
+h4 {
+  font-size: 0.77rem;
+}
+
+small {
+  font-size: 0.75rem;
+}
+
+.profile-photo {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.text-muted {
+  color: var(--color-info-dark);
+}
+
+p {
+  color: var(--color-dark-variant);
+}
+
+b {
+  color: var(--color-dark);
+}
+
+.primary {
+  color: var(--color-primary);
+}
+
+.danger {
+  color: var(--color-danger);
+}
+
+.success {
+  color: var(--color-success);
+}
+
+.warning {
+  color: var(--color-warning);
+}
+
+aside {
+  height: 93%;
+}
+
+aside .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.4rem;
+}
+
+aside .logo {
+  display: flex;
+  gap: 0.8rem;
+}
+
+aside .logo img {
+  width: 2rem;
+  height: 2rem;
+}
+
+aside .close {
+  display: none;
+}
+
+/*================== SIDEBAR ======================*/
+
+aside .sidebar {
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  position: relative;
+  top: 3rem;
+}
+
+aside h3 {
+  font-weight: 500;
+}
+
+aside .sidebar a {
+  display: flex;
+  color: var(--color-info-dark);
+  margin-left: 2rem;
+  gap: 1rem;
+  align-items: center;
+  position: relative;
+  height: 3.7rem;
+  transition: all 300ms ease;
+}
+
+aside .sidebar a span {
+  font-size: 1.6rem;
+  transition: all 300ms ease;
+}
+
+aside .sidebar a:last-child {
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+}
+
+aside .sidebar a.active {
+  background: var(--color-light);
+  color: var(--color-primary);
+  margin-left: 0;
+}
+
+aside .sidebar a.active:before {
+  content: "";
+  width: 6px;
+  height: 100%;
+  background: var(--color-primary);
+}
+
+aside .sidebar a.active span {
+  color: var(--color-primary);
+  margin-left: calc(1rem - 3px);
+}
+
+aside .sidebar a:hover {
+  color: var(--color-primary);
+}
+
+aside .sidebar a:hover span {
+  margin-left: 1rem;
+}
+
+/*============================= MAİN ==============================*/
+
+main {
+  margin-top: 1.4rem;
+}
+
+main .date {
+  display: inline;
+  background: var(--color-light);
+  border-radius: var(--border-radius-1);
+  margin-top: 1rem;
+  padding: 0.5rem 1.6rem;
+}
+
+main .date input[type="date"] {
+  background: transparent;
+  color: var(--color-dark);
+}
+
+main .insights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+
+main .insights > div, .item-view > div, .vendor-view > div, .store-view > div {
+  background: var(--color-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  margin-top: 1rem;
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+}
+
+main .insights > div:hover , 
+     .item-view > div:hover, 
+     .vendor-view > div:hover,
+     .store-view > div:hover{
+  box-shadow: none;
+}
+
+main .insights > div span {
+  background: var(--color-primary);
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: var(--color-white);
+  font-size: 2rem;
+}
+
+main .insights > div.expenses span {
+  background: var(--color-danger);
+}
+
+main .insights > div.income span {
+  background: var(--color-success);
+}
+
+main .insights > div .middle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main .insights h3 {
+  margin: 1rem 0 0.6rem;
+  font-size: 1rem;
+}
+
+main .insights .progress {
+  position: relative;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+}
+
+main .insights svg {
+  width: 7rem;
+  height: 7rem;
+}
+
+main .insights svg circle {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 14;
+  stroke-linecap: round;
+  transform: translate(5px, 5px);
+
+  /*--- HERE IS THE PROGRESS AMOUT ---*/
+  stroke-dasharray: 110;
+  stroke-dashoffset: 92;
+}
+
+main .insights .sales svg circle {
+  stroke-dashoffset: -30;
+  stroke-dasharray: 200;
+}
+
+main .insights .expenses svg circle {
+  stroke-dashoffset: 20;
+  stroke-dasharray: 80;
+}
+main .insights .progress .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .insights small {
+  margin-top: 1.3rem;
+  display: block;
+}
+
+/*===================== ITEM VIEW ==========================*/
+
+main .item-view {
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  gap: 1.6rem;
+}
+
+main .store-view {
+  display: grid;
+  grid-template-columns: repeat(2, 3fr);
+  gap: 1.6rem;
+}
+
+main .add-product {
+  padding: 0.9rem;
+  color: var(--color-white);
+  border-radius: 50%;
+  background: var(--color-success);
+  display: flex;
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+}
+
+main .add-product:hover{
+  box-shadow: none;
+}
+
+main .summary, .back{
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+}
+
+.back{
+  color: var(--color-dark);
+}
+
+/*===================== RECENT OREDERS ======================*/
+
+main .recent-orders {
+  margin-top: 2rem;
+}
+
+main .recent-orders h2 {
+  margin-bottom: 0.8rem;
+}
+
+main .recent-orders table {
+  background: var(--color-white);
+  width: 100%;
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+}
+
+main .recent-orders table:hover {
+  box-shadow: none;
+}
+
+main table tbody td {
+  height: 2.8rem;
+  border-bottom: 1px solid var(--color-light);
+  color: var(--color-dark-variant);
+}
+
+main table tbody tr:last-child td {
+  border: none;
+}
+
+main .recent-orders a {
+  text-align: center;
+  display: block;
+  margin: 1rem auto;
+  color: var(--color-primary);
+}
+
+.right {
+  margin-top: 1.4rem;
+}
+
+.right .top {
+  display: flex;
+  justify-content: end;
+  gap: 2rem;
+}
+
+.right .top button {
+  display: none;
+}
+
+.right .top .profile {
+  display: flex;
+  gap: 2rem;
+  text-align: right;
+}
+
+/*-----toggler-----*/
+
+.right .theme-toggler {
+  background: var(--color-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 1.6rem;
+  width: 4.2rem;
+  cursor: pointer;
+  border-radius: var(--border-radius-1);
+}
+
+.right .theme-toggler span {
+  font-size: 1.2rem;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right .theme-toggler span.active {
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--border-radius-1);
+}
+/*-----toggler-----*/
+
+.right .recent-updates {
+  margin-top: 1rem;
+}
+
+.right .recent-updates h2 {
+  margin-bottom: 0.8rem;
+}
+
+.right .recent-updates .updates {
+  background-color: var(--color-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+}
+
+.right .recent-updates .updates:hover {
+  box-shadow: none;
+}
+
+.right .recent-updates .update {
+  display: grid;
+  grid-template-columns: 2.6rem auto;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/*============= SALES ANALYTICS =============*/
+
+.right .sales-analytics {
+  margin-top: 2rem;
+}
+
+.right .sales-analytics h2 {
+  margin-bottom: 0.8rem;
+}
+
+.right .sales-analytics .item {
+  background: var(--color-white);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+  padding: 1.4rem var(--card-padding);
+  border-radius: var(--border-radius-3);
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+}
+
+.right .sales-analytics .item:hover {
+  box-shadow: none;
+}
+
+.right .sales-analytics .item .right {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin: 0;
+  width: 100%;
+}
+
+.right .sales-analytics .item .icon {
+  padding: 0.6rem;
+  color: var(--color-white);
+  border-radius: 50%;
+  background: var(--color-primary);
+  display: flex;
+}
+
+.right .sales-analytics .item .offline .icon {
+  background: var(--color-danger);
+}
+
+.right .sales-analytics .item .offline .icon {
+  background: var(--color-success);
+}
+
+.right .sales-analytics .add-product {
+  background-color: transparent;
+  border: 2px dashed var(--color-primary);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right .sales-analytics .add-product div {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.right .sales-analytics .add-product div h3 {
+  font-weight: 600;
+}
+
+
+/* --------------  LOGIN FORM -------------- */
+/* Based on a Dribbble shot by Andreas Storm
+   http://dribbble.com/shots/1127916-Sign-in
+*/
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select{
+  background:#EAE6E1;
+  border:0;
+  font-weight:bold;
+  padding:10px;
+  border-radius:var(--border-radius-1);
+  width:100%;
+  margin:5px 0;
+  outline:medium none;
+  color:#838383;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+input[type="checkbox"]{
+  -webkit-appearance:none;
+  width:10px;
+  height:10px;
+  position:relative;
+  outline:medium none;
+  margin-right:10px;
+}
+input[type="checkbox"]::before{
+  width:9px;
+  height:9px;
+  content:"";
+  display:block;
+  border:3px solid #C4BCB0;
+  border-radius: 9px;
+  position:absolute;
+}
+input[type="checkbox"]:checked::after{
+  width:5px;
+  height:5px;
+  content:"";
+  display:block;
+  background: #C4BCB0;
+  border-radius: 5px;
+  position:absolute;
+  left:5px;
+  top:5px;
+}
+input[type="submit"]{
+  display:block;
+  padding:10px;
+  background:var(--color-success);
+  border:0;
+  border-radius: var(--border-radius-1);
+  font-weight:bold;
+  width:100%;
+  color:#fff;
+  cursor:pointer;
+  -webkit-transition:all 0.3s;
+  -moz-transition:all 0.3s;
+  transition:all 0.3s;
+}
+input[type="submit"]:hover{
+  background:#58CCB0;
+}
+.main-form{
+  width:350px;
+  margin: 100px auto;
+  padding:50px;
+  border: 1px solid rgba(0,0,0,0.1);
+  -webkit-box-shadow:0 1px 2px rgba(0,0,0,0.2);
+  background:#fff;
+}
+.main-form > label{
+  display:block;
+  margin:10px 0 15px;
+  line-height:15px;
+  cursor:pointer;
+}
+.main-form > div{
+  margin-top:20px;
+}
+a{
+  color:#C4BCB0;
+  text-decoration:none;
+}
+.main-form > a{
+  font-size:11px;
+  display:block;
+  text-align:center;
+  margin:10px 0;
+}
+.main-form > div >a:first-child{
+  font-weight:bold;
+}
+.main-form > div >a:nth-child(2){
+  border:1px solid var(--color-success);
+  display:inline-block;
+  border-radius: var(--border-radius-1);
+  color:var(--color-success);
+  font-weight:bold;
+  padding:7px 15px;
+  margin-left:28px;
+  -webkit-transition:all 0.3s;
+  -moz-transition:all 0.3s;
+  transition:all 0.3s;
+}
+.main-form > div >a:nth-child(2):hover{
+  background:#58CCB0;
+  color:#fff;
+}
+
+main .login-box {
+  background: var(--color-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  margin-top: 1rem;
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+}
+.login-box:hover {
+  box-shadow: none;
+}
+
+/*=============== ADD ITEM =================*/
+
+main .add-area{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+}
+
+.example-display{
+  margin: 25%;
+}
+
+.editing-icon{
+  float: right;
+  cursor: pointer;
+}
+
+.category-select{
+  display: flex;
+   margin-top: 0.8rem;
+   margin-bottom: 0.8rem;
+}
+
+#category{
+  margin-top: 0;
+  margin-bottom: 0;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.square{
+  border-radius: var(--border-radius-1) !important;
+}
+
+
+/*===================== POP UP START ===================*/
+
+.box-text {
+  text-align: center;
+  font-family: Tahoma, Arial, sans-serif;
+  color: #06D85F;
+  margin: 80px 0;
+}
+
+.box {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.popup-button {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.popup-button-button:hover {
+  background: #06D85F;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7); 
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.popup .close:hover {
+  color: #06D85F;
+}
+
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+/*===================== POP UP END ===================*/
+
+/* ==================== VENDOR =========================*/
+
+.vendor{
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.vendor-right{
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  justify-content: space-between;
+  width: 10%;
+}
+
+.vendor-left{
+  width: 20%;
+}
+
+.vendor-details{
+  width: 70%;
+}
+
+.vendor-details .icon {
+  padding: 0.6rem;
+  color: var(--color-white);
+  border-radius: 50%;
+  background: var(--color-primary-variant);
+  display: flex;
+}
+
+.vendor-details > *{
+  padding: 0.7rem;
+}
+
+.vendor-details h2{
+  padding: 0.5rem;
+}
+
+.sub-title{
+  display: flex;
+}
+
+.pending{
+  background-color: var(--color-primary) !important;
+}
+
+/* ==================== VENDOR END =========================*/
+/* ==================== STORE START =========================*/
+
+
+.store-top{
+  display: grid;
+  width: 10%;
+}
+
+.store-middle{
+  display: grid;
+  width: 10%;
+}
+
+
+.store-bottom{
+  display: grid;
+
+}
+
+/* ==================== STORE END =========================*/
+
+/* ==================== STATISTICS  =========================*/
+
+.graphs{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.6rem;
+  margin-top: 1.6rem;
+}
+
+main .graphs > div{
+  background: var(--color-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  margin-top: 1rem;
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+}
+
+main .graphs > div:hover{
+  box-shadow: none;
+}
+
+/* ==================== STATISTICS END =========================*/
+/* =================== BEGIN GRAPH ====================*/
+
+.graph {
+	margin-bottom:1em;
+  font:normal 100%/150% arial,helvetica,sans-serif;
+}
+
+.graph caption {
+	font:bold 150%/120% arial,helvetica,sans-serif;
+	padding-bottom:0.33em;
+}
+
+.graph tbody th {
+	text-align:right;
+}
+
+@supports (display:grid) {
+
+	@media (min-width:32em) {
+
+		.graph {
+			display:block;
+		}
+
+		.graph caption {
+			display:block;
+		}
+
+		.graph thead {
+			display:none;
+		}
+
+		.graph tbody {
+			position:relative;
+			display:grid;
+			grid-template-columns:repeat(auto-fit, minmax(2em, 1fr));
+			column-gap:2.5%;
+			align-items:end;
+			height:100%;
+			margin:3em 0 1em 2.8em;
+			padding:0 1em;
+			border-bottom:2px solid rgba(0,0,0,0.5);
+			background:repeating-linear-gradient(
+				180deg,
+				rgba(170,170,170,0.7) 0,
+				rgba(170,170,170,0.7) 1px,
+				transparent 1px,
+				transparent 20%
+			);
+		}
+
+		.graph tbody:before,
+		.graph tbody:after {
+			position:absolute;
+			left:-3.2em;
+			width:2.8em;
+			text-align:right;
+			font:bold 80%/120% arial,helvetica,sans-serif;
+		}
+
+		.graph tbody:before {
+			content:"100%";
+			top:-0.6em;
+		}
+
+		.graph tbody:after {
+			content:"0%";
+			bottom:-0.6em;
+		}
+
+		.graph tr {
+			position:relative;
+			display:block;
+		}
+
+		.graph tr:hover {
+			z-index:999;
+		}
+
+		.graph th,
+		.graph td {
+			display:block;
+			text-align:center;
+		}
+
+		.graph tbody th {
+			position:absolute;
+			top:-3em;
+			left:0;
+			width:100%;
+			font-weight:normal;
+			text-align:center;
+      white-space:nowrap;
+			text-indent:0;
+			transform:rotate(-45deg);
+		}
+
+		.graph tbody th:after {
+			content:"";
+		}
+
+		.graph td {
+			width:100%;
+			height:100%;
+			background: var(--color-orange);
+			border-radius:0.5em 0.5em 0 0;
+			transition:background 0.5s;
+		}
+
+		.graph tr:hover td {
+			opacity:0.7;
+		}
+
+		.graph td span {
+			overflow:hidden;
+			position:absolute;
+			left:50%;
+			top:50%;
+			width:0;
+			padding:0.5em 0;
+			margin:-1em 0 0;
+			font:normal 85%/120% arial,helvetica,sans-serif;
+/* 			background:white; */
+/* 			box-shadow:0 0 0.25em rgba(0,0,0,0.6); */
+			font-weight:bold;
+			opacity:0;
+			transition:opacity 0.5s;
+      color:white;
+		}
+
+		.toggleGraph:checked + table td span,
+		.graph tr:hover td span {
+			width:4em;
+			margin-left:-2em; /* 1/2 the declared width */
+			opacity:1;
+		}
+
+	} /* min-width:32em */
+
+} /* grid only */
+
+.graph{
+  height: 14rem;
+}
+
+
+/* == pie chart == */
+.chart {
+  width: 14rem;
+  height: 14rem;
+}
+.pieTip {
+  position: absolute;
+  float: left;
+  min-width: 30px;
+  max-width: 300px;
+  padding: 5px 18px 6px;
+  border-radius: 2px;
+  background: rgba(255,255,255,.97);
+  color: #444;
+  font-size: 19px;
+  text-shadow: 0 1px 0 #fff;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.3;
+  letter-spacing: .06em;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.5);
+  -webkit-transform: all .3s;
+     -moz-transform: all .3s;
+      -ms-transform: all .3s;
+       -o-transform: all .3s;
+          transform: all .3s;
+  pointer-events: none;
+}
+.pieTip:after {
+      position: absolute;
+      left: 50%;
+      bottom: -6px;
+      content: "";
+      height: 0;
+      margin: 0 0 0 -6px;
+      border-right: 5px solid transparent;
+      border-left: 5px solid transparent;
+      border-top: 6px solid rgba(255,255,255,.95);
+      line-height: 0;
+}
+.chart path { cursor: pointer; }
+
+.pie-container{
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  gap: 1.9rem;
+}
+
+/* =================== END GRAPH ===================== */

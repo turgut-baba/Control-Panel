@@ -1,0 +1,71 @@
+{% extends 'base.html' %} {% block title %} Moirant | Ürünler {% endblock %}
+{%block content %}
+<h1>Bayiler</h1>
+<div class="summary">
+  <a class="add-product" href="{% url 'accounts:add_vendor' %}">
+    <span class="material-icons-sharp">add</span>
+  </a>
+  <a
+    class="add-product square pending"
+    title="Yeni kategori ekle"
+    href="#"
+  >
+    <span class="material-icons-sharp">pending_actions</span>Onay Bekleyen
+  </a>
+</div>
+  <!-- --------------END OF TOP---------------- -->
+<div class="vendor-view">
+  {% for vendor in vendors %}
+  <div class="sales vendor">
+    <div class="vendor-left">
+      <span class="material-icons-sharp">person_outline</span>
+      <div class="lef">
+        <h3>{{ vendor.name }}</h3>
+      </div>
+      <div class="progress">
+        <svg>
+          <circle cx="38" cy="38" r="36"></circle>
+        </svg>
+        <div class="number">
+          <h3>Son işlem:</h3>
+          <p>Ürün satıldı</p>
+        </div>
+      </div>
+    </div>
+      <!-- --------------END OF LEFT---------------- -->
+    <div class="vendor-details">
+      <div class="sub-title">
+        <div class="icon">
+          <span class="material-icons-sharp">format_align_left </span>
+        </div>
+        <h2>Detaylar:</h2>
+      </div>
+      <p>{{ vendor.desc }}</p>
+
+      <div class="sub-title">
+        <div class="icon" style="background-color: var(--color-warning)">
+          <span class="material-icons-sharp">location_on</span>
+        </div>
+        <h2>Adress:</h2>
+      </div>
+      <p>{{ vendor.address }}</p>
+    </div>
+      <!-- --------------END OF MIDDLE---------------- -->
+    <div class="vendor-right">
+      <small class="text-muted">Son 24 saat</small>
+      <span
+        class="material-icons-sharp editing-icon"
+        style="color: var(--color-primary)"
+        >edit</span>
+      <span class="material-icons-sharp danger editing-icon">delete</span>
+        <div class="number">
+          <h3>Toplam satış:</h3>
+          <p>34</p>
+        </div>
+    </div>
+      <!-- --------------END OF RIGHT---------------- -->
+  </div>
+  {% endfor %}
+</div>
+  <!-- --------------END OF VENDOR---------------- -->
+{% endblock %}

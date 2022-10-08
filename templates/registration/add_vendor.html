@@ -1,0 +1,82 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Moirant | Ürün
+Ekle {% endblock %} {% block content %}
+<h1>Yeni Bayi Ekle</h1>
+<a href="{% url 'accounts:vendor_url' %}" class="back"
+  ><span class="material-icons-sharp">arrow_back</span> Geri</a
+>
+<div class="add-area">
+  <div class="form-area">
+    <form method="POST">
+      {% csrf_token %}
+      <h2>İsim:</h2>
+      <input
+        type="text"
+        placeholder="Ürün adı"
+        requiered
+        id="Item_name"
+        name="name"
+        value=""
+      />
+      <h2>adres:</h2>
+      <input
+        type="number"
+        placeholder="Miktar"
+        requiered
+        id="Quantity"
+        name="quantity"
+        value=""
+      />
+      <h2>Detaylar:</h2>
+      <input
+        type="number"
+        placeholder="Maliyet"
+        requiered
+        id="Cost"
+        name="cost"
+        value=""
+      />
+      <h2>Şifre:</h2>
+      <input
+        type="password"
+        placeholder="Satış Fiyatı"
+        requiered
+        id="Price"
+        name="price"
+        value=""
+      />
+
+      <p>Bu tuşa basarak categoriyi onaylamış olacaksınız.</p>
+      <input type="submit" method="POST" value="Onayla" />
+    </form>
+    {% if success %}
+    <h2 class="success">Ürün Başarıyla Oluşturulmuştur.</h2>
+    {% elif error %}
+    <h2 class="danger">Lütfen Bütün Alanları Doldurunuz</h2>
+    {% endif %}
+  </div>
+  <div class="example-display">
+    <div class="item-view">
+      <div class="sales">
+        <span class="material-icons-sharp" id="category-icon">inventory_2</span>
+        <div class="middle">
+          <div class="lef">
+            <h3 id="name-display">Ürün adı</h3>
+            <h1 id="price-display">Miktar / Maliyet</h1>
+          </div>
+          <div class="progress">
+            <div class="number">
+              <p>{{last_id}}</p>
+            </div>
+          </div>
+        </div>
+        <small class="text-muted" id="category-label">Kategori</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %} 
+
+{% block additional_scripts %}
+<script type="text/javascript" src="{% static 'js/item_display.js' %}"></script>
+{% endblock %}

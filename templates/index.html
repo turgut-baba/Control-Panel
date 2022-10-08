@@ -1,0 +1,108 @@
+{% extends 'base.html' %} {% block title %} Moirant | Ana sayfa {% endblock %}
+{% block content %}
+<h1 style="margin-bottom: 1rem">Panel</h1>
+<div class="date">
+  <input type="date" />
+</div>
+
+<div class="insights">
+  <div class="sales">
+    <span class="material-icons-sharp">analytics</span>
+    <div class="middle">
+      <div class="lef">
+        <h3>Toplam Satışlar</h3>
+        <h1>₺{{ income }}</h1>
+      </div>
+      <div class="progress">
+        <svg>
+          <circle cx="38" cy="38" r="36"></circle>
+        </svg>
+        <div class="number">
+          <p>81%</p>
+        </div>
+      </div>
+    </div>
+    <small class="text-muted">Son 24 saat</small>
+  </div>
+  <!-- --------------END OF SALES---------------- -->
+  <div class="expenses">
+    <span class="material-icons-sharp">bar_chart</span>
+    <div class="middle">
+      <div class="lef">
+        <h3>Toplam Gider</h3>
+        <h1>₺{{cost}}</h1>
+      </div>
+      <div class="progress">
+        <svg>
+          <circle cx="38" cy="38" r="36"></circle>
+        </svg>
+        <div class="number">
+          <p>81%</p>
+        </div>
+      </div>
+    </div>
+    <small class="text-muted">Son 24 saat</small>
+  </div>
+  <!-- --------------END OF EXPENSES---------------- -->
+  <div class="income">
+    <span class="material-icons-sharp">stacked_line_chart</span>
+    <div class="middle">
+      <div class="lef">
+        <h3>Toplam Gelir</h3>
+        <h1>₺{{earned}}</h1>
+      </div>
+      <div class="progress">
+        <svg>
+          <circle cx="38" cy="38" r="36"></circle>
+        </svg>
+        <div class="number">
+          <p>81%</p>
+        </div>
+      </div>
+    </div>
+    <small class="text-muted">Son 24 saat</small>
+  </div>
+  <!-- --------------END OF INCOME---------------- -->
+</div>
+<!-- --------------END OF INSIGTHS---------------- -->
+<div class="recent-orders">
+  <h2>Son Sipraişler</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Ürün Adı</th>
+        <th>Miktar</th>
+        <th>Tedarikci</th>
+        <th>Teslimat Durumu</th>
+        <th>Detaylı</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if latest_transactions %} {% for transaction in latest_transactions %}
+      <tr>
+        <td>{{ transaction.item }}</td>
+        <td>{{ transaction.quantity }}</td>
+        <td>{{ transaction.client }}</td>
+
+        {% if transaction.state == 0 %}
+        <td class="warning">Beklemede</td>
+        {% elif transaction.state == 1 %}
+        <td class="success">Onaylandı</td>
+        {% elif transaction.state == 2 %}
+        <td class="danger">Sorun</td>
+        {% endif %}
+
+        <td class="Primary">Detaylar</td>
+      </tr>
+      {% endfor %} {% else %}
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td class="warning">---</td>
+      <td class="Primary">Detaylar</td>
+      {% endif %}
+    </tbody>
+  </table>
+  <a href="{% url 'stock_control:shipments_view'%}">Hepsini Göster</a>
+</div>
+{% endblock %}

@@ -1,0 +1,135 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Moirant | Ürün
+Ekle {% endblock %} {% block content %}
+<h1>İstatistikler:</h1>
+<div class="insights">
+  <div class="sales">
+    <span class="material-icons-sharp">analytics</span>
+    <div class="middle">
+      <div class="lef">
+        <h3>Toplam Satışlar</h3>
+        <h1>₺{{ income }}</h1>
+      </div>
+      <div class="progress">
+        <svg>
+          <circle cx="38" cy="38" r="36"></circle>
+        </svg>
+        <div class="number">
+          <p>81%</p>
+        </div>
+      </div>
+    </div>
+    <small class="text-muted">Son 24 saat</small>
+  </div>
+  <!-- --------------END OF SALES---------------- -->
+  <div class="expenses">
+    <span class="material-icons-sharp">bar_chart</span>
+    <div class="middle">
+      <div class="lef">
+        <h3>Toplam Gider</h3>
+        <h1>₺{{cost}}</h1>
+      </div>
+      <div class="progress">
+        <svg>
+          <circle cx="38" cy="38" r="36"></circle>
+        </svg>
+        <div class="number">
+          <p>81%</p>
+        </div>
+      </div>
+    </div>
+    <small class="text-muted">Son 24 saat</small>
+  </div>
+  <!-- --------------END OF EXPENSES---------------- -->
+  <div class="income">
+    <span class="material-icons-sharp">stacked_line_chart</span>
+    <div class="middle">
+      <div class="lef">
+        <h3>Toplam Gelir</h3>
+        <h1>₺{{earned}}</h1>
+      </div>
+      <div class="progress">
+        <svg>
+          <circle cx="38" cy="38" r="36"></circle>
+        </svg>
+        <div class="number">
+          <p>81%</p>
+        </div>
+      </div>
+    </div>
+    <small class="text-muted">Son 24 saat</small>
+  </div>
+  <!-- --------------END OF INCOME---------------- -->
+</div>
+  <!-- -------------- GRAPHS ---------------- -->
+<div class="graphs">
+    <div class="sales">
+        <!----------------- BEGIN GRAPH --------------->
+        <table class="graph">
+	<h2>Aylık Satışlar</h2>
+	<thead>
+		<tr>
+			<th scope="col">Item</th>
+			<th scope="col">Percent</th>
+		</tr>
+	</thead><tbody>
+		<tr style="height:85%">
+			<th scope="row">Ekim</th>
+			<td><span>85%</span></td>
+		</tr>
+		<tr style="height:23%">
+			<th scope="row">Kasım</th>
+			<td><span>23%</span></td>
+		</tr>
+		<tr style="height:7%">
+			<th scope="row">Aralık</th>
+			<td><span>7%</span></td>
+		</tr>
+		<tr style="height:38%">
+			<th scope="row">Ocak</th>
+			<td><span>38%</span></td>
+		</tr>
+		<tr style="height:35%">
+			<th scope="row">Şubat</th>
+			<td><span>35%</span></td>
+		</tr>
+		<tr style="height:30%">
+			<th scope="row">Mart</th>
+			<td><span>30%</span></td>
+		</tr>
+		<tr style="height:5%">
+			<th scope="row">Nisan</th>
+			<td><span>5%</span></td>
+		</tr>
+		<tr style="height:20%">
+			<th scope="row">Mayıs</th>
+			<td><span>20%</span></td>
+		</tr>
+	</tbody>
+</table>
+<!----------------- END GRAPH --------------->
+    <small class="text-muted">Son 8 Ay</small>
+  </div>
+<!-- -------------- END OF LEFT ---------------- -->
+  <div class="sales">
+  	<h2>Satış dağlımı</h2>
+  <!----------------- START PIECHART --------------->
+  <div class="pie-container">
+    <div id="pieChart" class="chart"></div>
+    <ul class="pie-box">
+      <li>
+        Test
+      </li>
+       <li>
+        Test2
+      </li>
+  </div>
+    <!----------------- END PIECHART --------------->
+    <small class="text-muted">Son 1Ay</small>
+  </div>
+  <!-- -------------- END OF RIGHT ---------------- -->
+</div>
+<!-- -------------- END OF GRAPHS ---------------- -->
+ {% endblock %}
+{% block additional_scripts %} 
+<script type="text/javascript" src="{% static 'js/statistics.js' %}"></script>
+{% endblock %}

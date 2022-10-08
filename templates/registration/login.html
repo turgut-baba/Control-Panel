@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Moirant | Login</title>
+    <!-- File links -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+  </head>
+  <body class="login-screen">
+    <div class="login-container">
+        <main>
+            <form method="POST">
+              {% csrf_token %} 
+              <div class="main-form login-box">
+                      <h1> Moirant Login </h1>
+              <i class="logo"></i>
+              <input type="text" placeholder="Username" id="username" name="username" value="" />
+              <input type="password" placeholder="Password" name="password" id="password" value="" />
+              <label> <input type="checkbox" name="remember" id="remembered" /> Remember me </label>
+              <input type="submit" method="POST" value="Sign in" /> 
+              <a href="#" title="">Forgot your password?</a>
+              <div>
+                <a href="#" title="">Don't have an account?</a>
+                <a href="#" title="">Sign Up</a>
+              </div>
+              </div>
+            </form>
+        </main>
+    </div>
+  </body>
+</html>
