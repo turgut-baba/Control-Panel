@@ -61,9 +61,12 @@ body {
 .container, .login-container {
   display: grid;
   width: 96%;
-  margin: 0 auto;
   gap: 1.8rem;
   grid-template-columns: 14rem auto 23rem;
+}
+
+.login-container{
+  margin: 0 auto;
 }
 
 .login-container{
@@ -148,8 +151,11 @@ b {
 }
 
 aside {
+  box-shadow: 30px 0px 30px rgb(0 0 0 / 10%), 30px 0px 20px rgb(0 0 0 / 10%);
   height: 93%;
 }
+
+
 
 aside .top {
   display: flex;

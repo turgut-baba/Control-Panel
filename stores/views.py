@@ -8,8 +8,8 @@ from Control_Panel.settings import DEBUG
 from .forms import AddItem
 import json
 
-from trendyol_sdk.api import TrendyolApi
-from trendyol_sdk.services import ProductIntegrationService
+# from trendyol_sdk.api import TrendyolApi
+# from trendyol_sdk.services import ProductIntegrationService
 
 
 trendyol_url = "https://stageapi.trendyol.com/stagesapigw/" if DEBUG else "https://api.trendyol.com/sapigw/"

@@ -47,6 +47,11 @@
           </a>
 
           <a href="{% url 'stock_control:statistics_view' %}">
+            <span class="material-icons-sharp">smart_toy</span>
+            <h2>Yapay Zeka</h2>
+          </a>
+
+          <a href="{% url 'stock_control:statistics_view' %}">
             <span class="material-icons-sharp">insights</span>
             <h2>İstatistikler</h2>
           </a>
@@ -57,13 +62,23 @@
           </a>
 
           <a href="{% url 'accounts:vendor_url' %}">
-            <span class="material-icons-sharp">person_outline</span>
+            <span class="material-icons-sharp">store</span>
             <h2>Bayiler</h2>
+          </a>
+
+           <a href="{% url 'accounts:vendor_url' %}">
+            <span class="material-icons-sharp">person_outline</span>
+            <h2>Çalışanlar</h2>
           </a>
 
           <a href="{% url 'store_control:stores_url' %}">
             <span class="material-icons-sharp">shopping_cart_checkout</span>
             <h2>Satış kolları</h2>
+          </a>
+
+          <a href="{% url 'store_control:stores_url' %}">
+            <span class="material-icons-sharp">settings</span>
+            <h2>Ayarlar</h2>
           </a>
 
           <a href="{% url 'accounts:logout_url' %}">
