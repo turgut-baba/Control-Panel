@@ -1,6 +1,7 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.apps import apps
+from stocks.models import Item
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
@@ -31,6 +32,7 @@ class Vendor(AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     transaction_history = models.ForeignKey("stocks.Transaction", on_delete=models.CASCADE, blank=False, null=True)
     trendyol_id = models.SmallIntegerField(default=1234, validators=[MinValueValidator(0), MaxValueValidator(9999)])
+    sold_products = models.ManyToManyField(to=Item)
 
     REQUIRED_FIELDS = ['auth_level']
     USERNAME_FIELD = "name"
@@ -55,3 +57,7 @@ class Vendor(AbstractBaseUser):
     def __str__(self) -> str:
         return "%s , %s " % (self.name, self.desc)
 
+
+class Settings(models.Model):
+    # user = models.OneToOneField()
+    ...

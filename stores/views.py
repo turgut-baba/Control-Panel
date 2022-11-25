@@ -19,7 +19,7 @@ gittigidiyor_url = ""
 
 @user_passes_test(lambda usr: usr.auth_level >= 2)
 def store(request: str) -> HttpResponse:
-    stores = Store.objects.order_by('-name')
+    stores = Store.objects.order_by('-id')
 
     context = {
         'stores': stores,

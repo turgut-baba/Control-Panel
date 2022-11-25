@@ -57,6 +57,11 @@ def login_user(request: str) -> HttpResponse:
 
 
 @login_required
+def panel_settings(request: str) -> HttpResponse:
+    return render(request, 'settings.html')
+
+
+@login_required
 def logout_user(request: str) -> HttpResponse:
     logout(request)
     return redirect('registration/login.html')

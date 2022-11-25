@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block title %} Moirant | Ürünler {% endblock %}
+{% extends 'base.html' %}  {% load static %} {% block title %} Moirant | Ürünler {% endblock %}
 {% block content %}
     <h1>Ürünler</h1>
      <div class="summary">
@@ -7,7 +7,7 @@
         </a>
         {% if messages %}
           {% for message in messages %}
-          <h2 class="success"> {{ message }} </h2>
+          <h2 class="success fade-out-5sec" > {{ message }} </h2>
           {% endfor %}
         {% endif %}
         <h2> Toplam Ürün Sayısı : &nbsp;{{ item_size }}</h2>
@@ -28,7 +28,7 @@
                 <h3> {{item.name}} </h3>
                 <h1> 
                       {{item.quantity}}/{{item.cost}}₺
-                      <a href="#popup1"><span class="material-icons-sharp editing-icon danger">delete</span> </a>
+                      <a onclick="setDeletedItem( {% url 'stock_control:delete_item' %}, {{item.item_id}})"><span class="material-icons-sharp editing-icon danger">delete</span> </a>
                 </h1>
               </div>
               <div class="progress">
@@ -41,14 +41,18 @@
         </div>
     {% endfor %}
     </div>
-          <div id="popup1" class="overlay">
-          <div class="popup">
+    <div id="popup1" class="overlay">
+        <div class="popup">
             <h2>Onayla</h2>
             <a class="close" href="#">&times;</a>
             <div class="content">
               Bu ürünü silmek istediğinizden emin misiniz?
-              <input href="#" type="submit" method="POST" value="Onayla" />
+              <input href="{% url 'stock_control:add_item' %}" type="submit" method="POST" value="Onayla" />
             </div>
-          </div>
         </div>
+    </div>
+{% block additional_scripts %}
+<script type="text/javascript" src="{% static 'js/remove_item.js' %}"></script>
+{% endblock %}
+
 {% endblock %}

@@ -86,6 +86,13 @@ def item_details():
 
 
 @user_passes_test(lambda u: u.auth_level >= 2)
+def delete_item(request, item_id):
+    product = Item.objects.get(id=item_id)
+    product.delete()
+    return render(request, "stocks/add_item.html", {"Sucess": item_id})
+
+
+@user_passes_test(lambda u: u.auth_level >= 2)
 def statistics(request: str) -> HttpResponse:
     transactions_by_index = Transaction.objects.order_by('-time')
     total_income, total_cost, total_earned = 0, 0, 0

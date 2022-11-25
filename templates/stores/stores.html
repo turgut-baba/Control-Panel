@@ -40,7 +40,7 @@ Ekle {% endblock %} {% block content %}
       <a
         class="add-product square pending"
         title="Yönet"
-        href="{% url 'store_control:detail_url' store.name %}"
+        href="{% url 'store_control:detail_url' store.id %}"
       >
         <span class="material-icons-sharp">pending_actions</span>Yönet
       </a>

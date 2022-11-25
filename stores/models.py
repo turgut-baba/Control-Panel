@@ -2,7 +2,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from enum import Enum, unique, auto
 
-"""
+
 # This is where we declare added stores.
 @unique
 class StoreID(Enum):
@@ -98,3 +98,4 @@ class Bundle(models.Model):
 class Listing(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE, default=1)
     stock = models.IntegerField(default=0)
+"""
