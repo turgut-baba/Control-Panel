@@ -47,8 +47,8 @@ Ekle {% endblock %} {% block content %}
       <h2>Categori:</h2>
       <div class="category-select">
         <select name="category" id="category">
-          {% for cate in categories %}
-          <option value="{{ cate.category }}">{{ cate.category }}</option>
+          {% for category in categories %}
+          <option value="{{ category.category }}">{{ category.category }}</option>
           {% endfor %}
         </select>
         <a

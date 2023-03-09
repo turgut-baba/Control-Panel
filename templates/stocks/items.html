@@ -28,7 +28,7 @@
                 <h3> {{item.name}} </h3>
                 <h1> 
                       {{item.quantity}}/{{item.cost}}₺
-                      <a onclick="setDeletedItem( {% url 'stock_control:delete_item' %}, {{item.item_id}})"><span class="material-icons-sharp editing-icon danger">delete</span> </a>
+                      <a href="{% url 'stock_control:delete_item' item_id=item.ID %}"><span class="material-icons-sharp editing-icon danger">delete</span> </a>
                 </h1>
               </div>
               <div class="progress">

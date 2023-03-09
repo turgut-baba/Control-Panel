@@ -11,7 +11,7 @@ class Category(models.Model):
 
 
 class Item(models.Model):
-    item_id = models.AutoField(primary_key=True)
+    ID = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
     quantity = models.IntegerField(default=0)

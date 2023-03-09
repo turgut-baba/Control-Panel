@@ -7,6 +7,7 @@ from .forms import ItemForm
 from django.contrib import messages
 import json
 import os
+from django.shortcuts import redirect
 
 
 @user_passes_test(lambda u: u.auth_level >= 2)
@@ -39,7 +40,7 @@ def shipments(request: str) -> HttpResponse:
 
 @user_passes_test(lambda u: u.auth_level >= 2)
 def item_view(request: str) -> HttpResponse:
-    item_list = Item.objects.order_by('-item_id')
+    item_list = Item.objects.order_by('-ID')
     context = {
         'item_list': item_list,
         'item_size': len(item_list)
@@ -50,10 +51,10 @@ def item_view(request: str) -> HttpResponse:
 @user_passes_test(lambda u: u.auth_level >= 2)
 def add_item(request: str) -> HttpResponse:
     categories = Category.objects.order_by('-category')
-    last_id = Item.objects.order_by('-item_id')[:1]
+    last_id = Item.objects.order_by('-ID')[:1]
 
     try:
-        used_id = last_id[0].item_id + 1
+        used_id = last_id[0].ID + 1
     except IndexError:
         used_id = 0
 
@@ -87,9 +88,10 @@ def item_details():
 
 @user_passes_test(lambda u: u.auth_level >= 2)
 def delete_item(request, item_id):
-    product = Item.objects.get(id=item_id)
+    product = Item.objects.get(ID=item_id)
     product.delete()
-    return render(request, "stocks/add_item.html", {"Sucess": item_id})
+    messages.add_message(request, messages.WARNING, "Ürün başarıyla silinmiştir!")
+    return redirect("stock_control:item_view")
 
 
 @user_passes_test(lambda u: u.auth_level >= 2)
