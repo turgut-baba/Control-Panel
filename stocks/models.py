@@ -96,9 +96,9 @@ class Transaction(models.Model):
     quantity = models.IntegerField()
     time = models.DateTimeField(auto_now=True)
     state = models.SmallIntegerField(default=0)
-    item = models.ForeignKey(Item, on_delete=models.CASCADE, blank=False, null=False)
-    client = models.ForeignKey(Client, on_delete=models.CASCADE, blank=False, null=False)
-    the_vendor = models.ForeignKey("accounts.Vendor", on_delete=models.CASCADE, blank=False, null=True)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, blank=False, null=False, default=0)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE, blank=False, null=False, default=0)
+    the_vendor = models.ForeignKey("accounts.Vendor", on_delete=models.CASCADE, blank=False, null=True, default=0)
 
     def __str__(self) -> str:
         return "%s , %s , %s" % (self.item.name, self.client.place, self.time)

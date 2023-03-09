@@ -3,17 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
-from .models import Vendor
-import Control_Panel.settings as sett
-from enum import Enum, unique
-
-
-@unique
-class Auth(Enum):
-    user = 0
-    vendor = 1
-    admin = 2
-    developer = 3
+from .models import Vendor, AuthLevel, User
 
 
 def user_vendor(request: str) -> HttpResponse:

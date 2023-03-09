@@ -152,14 +152,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = "/"
 
-AUTH_USER_MODEL = 'accounts.Vendor'
-
 SESSION_COOKIE_NAME = 'session'
 
+# FOR AUTH --------------------------------------
+
+AUTH_USER_MODEL = 'accounts.User'
+
 AUTHENTICATION_BACKENDS = (
-    'accounts.backends.AuthBackend',
+    'accounts.backends.AuthUser',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+# --------- --------------------------------------
 
 if DEBUG is False:
     SESSION_COOKIE_SECURE = True
