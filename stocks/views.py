@@ -82,20 +82,33 @@ def add_item(request: str) -> HttpResponse:
         return render(request, "stocks/add_item.html", context)
 
 
-def item_details():
-    ...
-
-
 @user_passes_test(lambda u: u.auth_level >= 2)
-def delete_item(request, item_id):
-    product = Item.objects.get(ID=item_id)
-    product.delete()
+def edit_item(request, item_id) -> HttpResponse:
+    item = Item.objects.get(ID=item_id)
+    categories = Category.objects.order_by('-category')
+    context = {
+        'categories': categories,
+        'item': item
+    }
+    if request.method == "POST":
+        messages.add_message(request, messages.SUCCESS, "Ürün başarıyla düzenlenmiştir!")
+        return redirect("stock_control:item_view")
+    else:
+        return render(request, "stocks/edit_item.html", context)
+
+def item_details(request, item_id) -> HttpResponse:
+    ...
+@user_passes_test(lambda u: u.auth_level >= 2)
+def delete_item(request, item_id) -> HttpResponse:
+    item = Item.objects.get(ID=item_id)
+    item.delete()
     messages.add_message(request, messages.WARNING, "Ürün başarıyla silinmiştir!")
     return redirect("stock_control:item_view")
 
 
 @user_passes_test(lambda u: u.auth_level >= 2)
 def statistics(request: str) -> HttpResponse:
+
     transactions_by_index = Transaction.objects.order_by('-time')
     total_income, total_cost, total_earned = 0, 0, 0
 

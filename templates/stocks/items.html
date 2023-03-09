@@ -22,7 +22,7 @@
             {% else %}
             <span class="material-icons-sharp">inventory_2</span>
             {% endif %}
-            <span class="material-icons-sharp editing-icon" style="color: var(--color-primary);">edit</span>
+            <a href="{% url 'stock_control:edit_item' item_id=item.ID %}"><span class="material-icons-sharp editing-icon" style="color: var(--color-primary);">edit</span></a>
             <div class="middle">
               <div class="lef">
                 <h3> {{item.name}} </h3>
