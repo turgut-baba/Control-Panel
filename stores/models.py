@@ -1,7 +1,8 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from enum import Enum, unique, auto
-
+from accounts.models import Vendor
+from stocks.models import Item
 
 # This is where we declare added stores.
 @unique
@@ -24,6 +25,12 @@ class Store(models.Model):
     def __str__(self) -> models.CharField:
         return self.name
 
+
+class VendorStore(models.Model):
+    name = models.CharField(max_length=50)
+    vendor_owner = models.OneToOneField(Vendor, on_delete=models.CASCADE)
+    address = models.CharField(max_length=200)
+    Products = models.OneToOneField(Item, on_delete=models.CASCADE)
 """
 from django.db.models.signals import post_save
 
